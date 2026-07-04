@@ -118,7 +118,7 @@
         });
     }
 
-    // 4. Web Audio API: Immersive Cinematic Mournful Pad
+    // 4. Web Audio API: Immersive Cinematic Mournful Pad (Optimized for Mobile)
     let audioCtx = null;
     let gainNode = null;
     let isPlaying = false;
@@ -132,10 +132,10 @@
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         audioCtx = new AudioContext();
 
-        // 1. Master Lowpass Filter to make the chords warm, heavy and dark
+        // 1. Master Lowpass Filter - 850Hz to keep it warm but fully audible on phone speakers
         const masterFilter = audioCtx.createBiquadFilter();
         masterFilter.type = 'lowpass';
-        masterFilter.frequency.setValueAtTime(320, audioCtx.currentTime); // Cut high frequencies
+        masterFilter.frequency.setValueAtTime(850, audioCtx.currentTime);
 
         // 2. Master Gain (fades in/out)
         gainNode = audioCtx.createGain();
@@ -145,19 +145,19 @@
         masterFilter.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
-        // 3. Create Chords (D Minor Cinematic Pad)
-        // D2: 73.42Hz (Triangle wave - warm fundamental bass)
-        // D3: 146.83Hz (Sine wave - deep center)
-        // F3: 174.61Hz (Triangle wave - minor third, slowly modulated)
-        // A3: 220.00Hz (Sine wave - perfect fifth)
-        // C4: 261.63Hz (Sine wave - minor seventh, adds tragic tension)
+        // 3. Create Chords (D Minor Cinematic Pad - Raised 1 Octave for Mobile Speakers)
+        // D3: 146.83Hz (Sine wave - warm central bass)
+        // D4: 293.66Hz (Triangle wave - clear fundamental, highly audible)
+        // F4: 349.23Hz (Triangle wave - minor third, highly audible)
+        // A4: 440.00Hz (Sine wave - perfect fifth, highly audible)
+        // C5: 523.25Hz (Sine wave - minor seventh, highly audible)
         
         const voices = [
-            { freq: 73.42, type: 'triangle', maxGain: 0.18, lfoFreq: 0.05 },
-            { freq: 146.83, type: 'sine', maxGain: 0.20, lfoFreq: 0.08 },
-            { freq: 174.61, type: 'triangle', maxGain: 0.12, lfoFreq: 0.03 },
-            { freq: 220.00, type: 'sine', maxGain: 0.15, lfoFreq: 0.04 },
-            { freq: 261.63, type: 'sine', maxGain: 0.08, lfoFreq: 0.06 }
+            { freq: 146.83, type: 'sine', maxGain: 0.18, lfoFreq: 0.05 },
+            { freq: 293.66, type: 'triangle', maxGain: 0.20, lfoFreq: 0.08 },
+            { freq: 349.23, type: 'triangle', maxGain: 0.15, lfoFreq: 0.03 },
+            { freq: 440.00, type: 'sine', maxGain: 0.18, lfoFreq: 0.04 },
+            { freq: 523.25, type: 'sine', maxGain: 0.12, lfoFreq: 0.06 }
         ];
 
         voices.forEach(voice => {
@@ -169,11 +169,9 @@
             const vGain = audioCtx.createGain();
             vGain.gain.setValueAtTime(voice.maxGain * 0.5, audioCtx.currentTime);
 
-            // Connect oscillator to its gain, and gain to the master filter
             osc.connect(vGain);
             vGain.connect(masterFilter);
 
-            // Start oscillator
             osc.start();
             oscs.push(osc);
 
@@ -182,16 +180,16 @@
             const lfoGain = audioCtx.createGain();
             
             lfo.frequency.setValueAtTime(voice.lfoFreq, audioCtx.currentTime);
-            lfoGain.gain.setValueAtTime(voice.maxGain * 0.4, audioCtx.currentTime); // Modulate amplitude
+            lfoGain.gain.setValueAtTime(voice.maxGain * 0.4, audioCtx.currentTime);
 
             lfo.connect(lfoGain);
-            lfoGain.connect(vGain.gain); // Connect LFO to modulate voice gain
+            lfoGain.connect(vGain.gain);
 
             lfo.start();
-            oscs.push(lfo); // Keep reference to stop it later
+            oscs.push(lfo);
         });
 
-        // 4. Sub-bass seismic rumble (30Hz)
+        // 4. Sub-bass seismic rumble (30Hz) - Still active for headphones/desktop
         const subOsc = audioCtx.createOscillator();
         subOsc.type = 'sine';
         subOsc.frequency.setValueAtTime(30, audioCtx.currentTime);
@@ -245,9 +243,9 @@
                     audioCtx.resume();
                 }
 
-                // Fade in hum slowly with proper Web Audio automation values
+                // Fade in hum slowly with proper Web Audio automation values (Volume raised to 0.22 for mobile)
                 gainNode.gain.setValueAtTime(gainNode.gain.value, audioCtx.currentTime);
-                gainNode.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 1.5);
+                gainNode.gain.linearRampToValueAtTime(0.22, audioCtx.currentTime + 1.5);
                 
                 // Toggle icons
                 iconOff.classList.add('hidden');
@@ -261,26 +259,31 @@
                 setTimeout(() => {
                     if (audioCtx && !isPlaying) {
                         audioCtx.suspend();
-                      }
-                  }, 1000);
-  
-                  // Toggle icons
-                  iconOff.classList.remove('hidden');
-                  iconOn.classList.add('hidden');
-                  audioToggle.classList.remove('accent-orange');
-                  isPlaying = false;
-              }
-          };
+                    }
+                }, 1000);
 
-          audioToggle.addEventListener('click', togglePlay);
-          audioToggle.addEventListener('touchend', togglePlay);
-      }
+                // Toggle icons
+                iconOff.classList.remove('hidden');
+                iconOn.classList.add('hidden');
+                audioToggle.classList.remove('accent-orange');
+                isPlaying = false;
+            }
+        };
 
-    // 5. Interactive Broken Flag Rumble
+        audioToggle.addEventListener('click', togglePlay);
+        audioToggle.addEventListener('touchend', togglePlay);
+    }
+
+    // 5. Interactive Broken Flag Rumble (Optimized for Mobile)
     const brokenFlag = document.querySelector('.broken-flag-container');
     if (brokenFlag) {
         brokenFlag.style.cursor = 'pointer';
-        brokenFlag.addEventListener('click', () => {
+        
+        const triggerRumble = (e) => {
+            if (e) {
+                e.preventDefault();
+            }
+            
             // Trigger CSS rumble animation
             brokenFlag.classList.remove('rumble');
             void brokenFlag.offsetWidth; // Trigger reflow to restart animation
@@ -295,14 +298,14 @@
                 const gain = audioCtx.createGain();
                 
                 osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(55, audioCtx.currentTime); // Low rumble frequency
+                osc.frequency.setValueAtTime(110, audioCtx.currentTime); // Raised to 110Hz for mobile speakers
                 
                 // Lowpass filter to muffle
                 const lp = audioCtx.createBiquadFilter();
                 lp.type = 'lowpass';
-                lp.frequency.setValueAtTime(90, audioCtx.currentTime);
+                lp.frequency.setValueAtTime(250, audioCtx.currentTime); // Raised to 250Hz for mobile speakers
                 
-                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.4, audioCtx.currentTime); // Raised volume to 0.4
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
                 
                 osc.connect(lp);
@@ -312,13 +315,9 @@
                 osc.start();
                 osc.stop(audioCtx.currentTime + 0.8);
             }
-        });
+        };
+
+        brokenFlag.addEventListener('click', triggerRumble);
+        brokenFlag.addEventListener('touchend', triggerRumble);
     }
 });
-
-
-
-
-
-
-
