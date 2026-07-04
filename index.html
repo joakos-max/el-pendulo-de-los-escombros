@@ -1,0 +1,742 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Péndulo de los Escombros | Luto Nacional</title>
+    <meta name="description" content="Una autopsia visceral a los sesenta años de negligencia y control de masas bajo las tragedias de Venezuela.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Audio Toggle -->
+    <button id="audio-toggle" class="audio-btn" aria-label="Activar zumbido ambiental">
+        <svg class="audio-icon-off" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+        <svg class="audio-icon-on hidden" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/>
+        </svg>
+        <span>ZUMBIDO INMERSIVO</span>
+    </button>
+
+    <!-- Header / Intro -->
+    <header class="hero-section">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <!-- Broken Flag SVG Motif -->
+            <div class="broken-flag-container">
+                <svg class="broken-flag-svg" viewBox="0 0 300 130" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Stripe 1: Muted Gold (Yellow) with crack cuts -->
+                    <path class="flag-stripe stripe-yellow" d="M 10 10 L 290 10 L 285 45 L 140 40 L 95 48 L 10 45 Z" fill="var(--accent-yellow)"/>
+                    
+                    <!-- Stripe 2: Slate Blue (Blue) with falling/dim stars -->
+                    <path class="flag-stripe stripe-blue" d="M 10 45 L 95 48 L 140 40 L 285 45 L 280 82 L 190 86 L 80 76 L 10 81 Z" fill="var(--accent-blue)"/>
+                    <!-- 8 Muted/Dim Stars in Arc -->
+                    <g fill="#ffffff" opacity="0.45" class="stars">
+                        <circle cx="100" cy="62" r="1.5" />
+                        <circle cx="112" cy="58" r="1.5" />
+                        <circle cx="126" cy="55" r="1.5" />
+                        <circle cx="140" cy="54" r="1.5" />
+                        <circle cx="154" cy="54" r="1.5" />
+                        <circle cx="168" cy="55" r="1.5" />
+                        <circle cx="182" cy="58" r="1.5" />
+                        <circle cx="194" cy="62" r="1.5" />
+                    </g>
+                    
+                    <!-- Stripe 3: Blood Red (Red) -->
+                    <path class="flag-stripe stripe-red" d="M 10 81 L 80 76 L 190 86 L 280 82 L 275 115 L 10 115 Z" fill="var(--accent-red)"/>
+                    
+                    <!-- Crack Overlay Paths -->
+                    <path d="M 120 8 L 135 48 L 115 78 L 130 118" stroke="var(--bg-main)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 200 8 L 190 38 L 205 73 L 185 118" stroke="var(--bg-main)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+            
+            <div class="eyebrow animate-fade">LA PATRIA BAJO LAS PIEDRAS</div>
+            <h1 class="hero-title animate-title">EL PÉNDULO DE LOS <span class="accent-orange">ESCOMBROS</span></h1>
+            <p class="hero-subtitle animate-fade">
+                Sesenta años bajo los escombros de la patria. El tricolor ya no brilla: está manchado de polvo, sangre y olvido. Una autopsia visceral a los mecanismos de manipulación y negligencia.
+            </p>
+            <div class="scroll-indicator">
+                <span>DESLIZA PARA DESENTERRAR LA VERDAD</span>
+                <div class="arrow-down"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main>
+        <!-- Prologue Section -->
+        <section id="prologo" class="section-block prologue-section animate-section">
+            <div class="container">
+                <div class="prologue-container">
+                    <span class="act-num">PRÓLOGO</span>
+                    <h2>El Dolor Bajo el Concreto</h2>
+                    <div class="prologue-text">
+                        <p class="dropcap">
+                            Venezuela no se ha derrumbado por el movimiento fortuito de sus placas tectónicas. Su verdadera ruina es moral, histórica y acumulativa. Los terremotos de 1967 y la devastación sísmica del 2026 son solo los paréntesis físicos de una demolición planificada, ejecutada día a día por un sistema que descubrió en nuestro dolor el más perfecto mecanismo de sumisión.
+                        </p>
+                        <p>
+                            Bajo las piedras de Caracas y La Guaira no solo yacen cuerpos atrapados; yace enterrada la mentira de un Estado que simula proteger mientras asfixia. En 2026 presenciamos la repetición exacta de la infamia: 72 horas de abandono y silencio. Tres días agónicos donde la única respuesta estatal fue desplegar fusiles y blindados para militarizar el sufrimiento, bloqueando la ayuda independiente por temor al descontento. Para extorsionar, robar y amedrentar, la bota militar es implacable; para cargar una viga y desenterrar a un compatriota, es inútil.
+                        </p>
+                        <p>
+                            Es una hipocresía que lacera el alma. Mientras el ciudadano común, exhausto, viviendo en la zozobra del día a día para apenas arañar el sustento y llevar un plato de comida a su mesa, sin agua en sus grifos y con la electricidad racionada, remueve bloques con sus manos sangrantes sintiendo la culpa de no tener más que dar, las élites y sus bufones digitales montan un circo en redes sociales. El "like" de la caridad performática, el show de la donación de un día grabado para el feed, la mercantilización obscena de la miseria humana. No ven personas atrapadas; ven píxeles, ven vistas, ven validación.
+                        </p>
+                        <p>
+                            Esta no es una tragedia de izquierda ni de derecha. La derecha del bipartidismo pre-1998 descuidó las bases estructurales y acribilló al pueblo hambriento; la izquierda actual militarizó la miseria y convirtió el hambre en un chantaje de control social. Ambos nos han usado como el combustible de sus privilegios. Delcy Rodríguez negociando en la sombra con Trump por el flujo del petróleo nos recuerda que, en el tablero de las superpotencias, la vida de un venezolano vale menos que un barril de crudo. Incluso el Papa, desde su palacio erigido en oro, envía oraciones vacías que no detienen el derrumbe, pidiendo resignación en la tierra para maquillar el silencio institucional.
+                        </p>
+                        <p class="highlight-text">
+                            ¿Es este el fin de nuestra historia, o estamos condenados a seguir cayendo al abismo infinito de la resignación?
+                        </p>
+                        <p>
+                            La cruda verdad es que si no cortamos la raíz de la dependencia, si seguimos aplaudiendo a mesías y salvadores externos, el péndulo seguirá golpeándonos la cabeza. Limpiarán las calles de escombros, levantarán infraestructuras de cartón sobre los mismos cadáveres no recuperados y esperaremos la siguiente sacudida para repetir el ciclo. La condena no es geológica: es nuestra propia fe en quienes nos entierran.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Act 1: The Timeline -->
+        <section id="acto-1" class="section-block">
+            <div class="container">
+                <div class="section-header">
+                    <span class="act-num">ACTO I</span>
+                    <h2>La Geología del Control</h2>
+                    <p class="section-intro">La tierra tiembla igual bajo cualquier bandera. Pero la respuesta estatal siempre revela a quién sirve realmente el poder. Explora las fracturas de nuestra historia.</p>
+                </div>
+
+                <!-- Timeline Component -->
+                <div class="timeline-wrapper">
+                    <div class="timeline-instruction animate-fade">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        <span>SELECCIONA O DESLIZA LOS AÑOS PARA DESCUBRIR LA HISTORIA</span>
+                    </div>
+                    <div class="timeline-nav">
+                        <button class="time-node active" data-year="1967">1967</button>
+                        <button class="time-node" data-year="1989">1989</button>
+                        <button class="time-node" data-year="1997">1997</button>
+                        <button class="time-node" data-year="1999">1999</button>
+                        <button class="time-node" data-year="2002">2002</button>
+                        <button class="time-node" data-year="2005">2005</button>
+                        <button class="time-node" data-year="2014">2014</button>
+                        <button class="time-node" data-year="2015">2015</button>
+                        <button class="time-node" data-year="2017">2017</button>
+                        <button class="time-node" data-year="2018">2018</button>
+                        <button class="time-node" data-year="2019">2019</button>
+                        <button class="time-node" data-year="2020">2020</button>
+                        <button class="time-node" data-year="2025">2025</button>
+                        <button class="time-node" data-year="2026">2026</button>
+                    </div>
+
+                    <div class="timeline-display">
+                        <!-- 1967 -->
+                        <div class="timeline-slide active" id="slide-1967">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">29 de Julio de 1967</span>
+                                    <h3 class="slide-title">La Fiesta del Polvo <span class="marker">Terremoto de Caracas</span></h3>
+                                    <p class="slide-desc">
+                                        Caracas bailaba celebrando su cuatricentenario cuando un violento temblor derribó edificios de gran altura en Altamira y Los Palos Grandes, aplastando a más de 200 personas en segundos.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>Codicia Inmobiliaria:</strong> Bajo el auge modernista del bipartidismo, se permitieron construcciones deficientes e ignorando regulaciones antisísmicas básicas para multiplicar el margen de ganancia corporativa, transformando el hogar en trampas mortales de concreto.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/1967.png" alt="Terremoto de Caracas 1967">
+                                        <div class="visual-content">
+                                            <div class="large-num">1967</div>
+                                            <div class="caption">La negligencia inmobiliaria del bipartidismo aplasta la capital.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1989 -->
+                        <div class="timeline-slide" id="slide-1989">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">27 y 28 de Febrero de 1989</span>
+                                    <h3 class="slide-title">El Hambre y el Plomo <span class="marker text-red">El Caracazo</span></h3>
+                                    <p class="slide-desc">
+                                        Un pueblo sumido en la miseria extrema por los ajustes de Carlos Andrés Pérez bajó de los cerros a exigir pan. La respuesta del Estado no fue el auxilio social, sino las balas del ejército disparadas directamente contra civiles desarmados en las escalinatas de los barrios.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>Represión a Muerte:</strong> La derecha tradicional expuso la barbarie de su modelo: defender con plomo los privilegios económicos de las cúpulas a costa de la vida de los más humildes. Esta masacre dejó un resentimiento profundo y cimentó el camino para la dictadura del mañana.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/1989.png" alt="El Caracazo 1989">
+                                        <div class="visual-content">
+                                            <div class="large-num text-red">1989</div>
+                                            <div class="caption">Las escalinatas de Caracas transformadas en cascadas de sangre civil.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1997 -->
+                        <div class="timeline-slide" id="slide-1997">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">9 de Julio de 1997</span>
+                                    <h3 class="slide-title">Escuelas de Arena <span class="marker">Terremoto de Cariaco</span></h3>
+                                    <p class="slide-desc">
+                                        El sismo destruye escuelas públicas y viviendas en Sucre, sepultando a niños dentro de sus aulas en Cariaco y Cumaná debido a deficiencias criminales de ingeniería civil en edificaciones del Estado.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>El Olvido Provincial:</strong> Mientras los recursos petroleros se concentraban en Caracas, las provincias carecían de equipos de rescate mínimos, bomberos equipados o planes de emergencia. La desidia de la Cuarta República mató en las escuelas de Cariaco.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/1997.png" alt="Terremoto de Cariaco 1997">
+                                        <div class="visual-content">
+                                            <div class="large-num">1997</div>
+                                            <div class="caption">Niños sepultados en escuelas construidas con arena y desprecio presupuestario.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1999 -->
+                        <div class="timeline-slide" id="slide-1999">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">Diciembre de 1999</span>
+                                    <h3 class="slide-title">El Fango Soberano <span class="marker text-orange">La Tragedia de Vargas</span></h3>
+                                    <p class="slide-desc">
+                                        Lluvias torrenciales desprenden las montañas del litoral central, sepultando poblados enteros bajo toneladas de barro y piedras. El desastre coincide con el referéndum constitucional.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>Soberanía de Fosa Común:</strong> Hugo Chávez rechaza la ayuda humanitaria y helicópteros de EE.UU. por orgullo ideológico, firmando la sentencia de muerte de quienes agonizaban bajo el lodo. Posteriormente, reconstruyen La Guaira apresuradamente sobre escombros y cadáveres no recuperados.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/vargas.png" alt="Tragedia de Vargas 1999">
+                                        <div class="visual-content">
+                                            <div class="large-num text-orange">1999</div>
+                                            <div class="caption">La ideología por encima de las vidas. La cuna del urbanismo sobre cadáveres.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2002 -->
+                        <div class="timeline-slide" id="slide-2002">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">Diciembre 2002 - Febrero 2003</span>
+                                    <h3 class="slide-title">La Captura del Crudo <span class="marker">El Paro Petrolero</span></h3>
+                                    <p class="slide-desc">
+                                        El sector petrolero paraliza actividades en protesta contra la imposición ideológica de Chávez en PDVSA. El país sufre una escasez de combustible extrema, paralizando el transporte y desatando kilométricas colas de días para llenar gasolina.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>La Purga de la Competencia:</strong> Chávez aprovecha el paro para despedir de manera arbitraria a más de 18,000 profesionales calificados de PDVSA, sustituyéndolos por militantes políticos leales. Esto marcó el fin de la excelencia técnica de la empresa y el inicio de su saqueo sistemático para financiar redes de control electoral.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2002.png" alt="Paro Petrolero 2002">
+                                        <div class="visual-content">
+                                            <div class="large-num">2002</div>
+                                            <div class="caption">La transformación de PDVSA en la caja chica de la sumisión nacional.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2005 -->
+                        <div class="timeline-slide" id="slide-2005">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">Febrero de 2005</span>
+                                    <h3 class="slide-title">El Deslave Andino <span class="marker text-orange">Tragedia del Mocotíes</span></h3>
+                                    <p class="slide-desc">
+                                        Intensas lluvias en el estado Mérida provocan el desbordamiento violento del río Mocotíes. Aludes de lodo arrasan con comunidades enteras en Tovar y Santa Cruz de Mora, cobrando la vida de más de 500 venezolanos.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>Abandono de la Cordillera:</strong> La tragedia desnudó el abandono de la provincia. La falta de maquinarias pesadas en los Andes forzó a los pobladores a cavar con palas rústicas, esperando días por una respuesta de Caracas. El Estado demostró que, para las cúpulas de la izquierda en Miraflores, las vidas andinas solo valían votos en el calendario electoral.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2005.png" alt="Tragedia del Mocoties 2005">
+                                        <div class="visual-content">
+                                            <div class="large-num text-orange">2005</div>
+                                            <div class="caption">La cordillera ahogada en fango ante el silencio del centralismo de Miraflores.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2014 -->
+                        <div class="timeline-slide" id="slide-2014">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">Febrero - Mayo de 2014</span>
+                                    <h3 class="slide-title">La Rebelión del Descontento <span class="marker text-red">La Salida</span></h3>
+                                    <p class="slide-desc">
+                                        La inseguridad desatada (detonada por el intento de violación de una estudiante en Táchira y el brutal asesinato de Mónica Spear) y la asfixia económica despiertan protestas estudiantiles nacionales bajo la consigna "La Salida". El régimen responde con represión brutal de la PNB, la GNB y colectivos armados.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>El Plomo en las Calles:</strong> Las llamadas "guarimbas" paralizan ciudades. Las fuerzas represivas ejecutan torturas, disparos en la cabeza a manifestantes y detenciones masivas. Esta ola de protestas concluye con **43 venezolanos asesinados**, cientos de heridos y el encarcelamiento de líderes opositores, demostrando que la dictadura no tolera disidencia.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/protests.png" alt="Protestas Venezuela">
+                                        <div class="visual-content">
+                                            <div class="large-num text-red">2014</div>
+                                            <div class="caption">El inicio de la resistencia estudiantil ahogada en balas.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2015 -->
+                        <div class="timeline-slide" id="slide-2015">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">2015 - 2016</span>
+                                    <h3 class="slide-title">El Marcaje del Hambre <span class="marker text-orange">La Gran Escasez</span></h3>
+                                    <p class="slide-desc">
+                                        Venezuela entra en su período de escasez de alimentos y medicinas más agudo. Se forman colas de hasta 12 horas bajo el sol para comprar un cartón de huevos o harina. El Estado impone el marcaje de números en los brazos de las personas y regula las compras por terminal de cédula.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>Sometimiento por Hambre:</strong> Las neveras de los hogares quedan vacías y la desnutrición golpea a los niños. Las personas hurgan en la basura en busca de deshechos para sobrevivir, mientras el régimen crea las bolsas CLAP como un chantaje electoral. Comienza el mayor éxodo migratorio del hemisferio occidental: más de 7 millones huyen.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2015.png" alt="La Gran Escasez 2015">
+                                        <div class="visual-content">
+                                            <div class="large-num text-orange">2015</div>
+                                            <div class="caption">Hacer colas kilométricas marcados en la piel para apenas conseguir pan.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2017 -->
+                        <div class="timeline-slide" id="slide-2017">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">Abril - Julio de 2017</span>
+                                    <h3 class="slide-title">La Juventud Acribillada <span class="marker text-red">Ruptura Constitucional</span></h3>
+                                    <p class="slide-desc">
+                                        El TSJ judicial disuelve de facto el parlamento electo mediante las sentencias 155 y 156, provocando una ruptura constitucional. La ciudadanía se vuelca a las calles durante 4 meses seguidos. Jóvenes desarmados con escudos de madera y cartón se enfrentan a fusiles, lacrimógenas y tanquetas.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>Generación Mutilada:</strong> La PNB y GNB dispararon bombas lacrimógenas directo al pecho de estudiantes, y colectivos paramilitares abrieron fuego a quemarropa. **Más de 160 jóvenes fueron asesinados** (entre ellos Neomar Lander, David Vallenilla y Armando Cañizales) en un genocidio generacional que aplastó la esperanza.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2017.png" alt="Protestas TSJ 2017">
+                                        <div class="visual-content">
+                                            <div class="large-num text-red">2017</div>
+                                            <div class="caption">La rebelión de los escudos de madera aplastada con fuego militar directo.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2018 -->
+                        <div class="timeline-slide" id="slide-2018">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">21 de Agosto de 2018</span>
+                                    <h3 class="slide-title">El País Desnudo <span class="marker">Terremoto de Sucre</span></h3>
+                                    <p class="slide-desc">
+                                        Un sismo de magnitud 6.9 estremece al país, agrietando el oriente y bamboleando rascacielos vacíos en Caracas, como la abandonada Torre de David.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>La Ruina de Emergencia:</strong> El sismo no provocó muertes masivas por pura coincidencia geológica. Un país devastado por la hiperinflación carecía de bomberos con herramientas, ambulancias operativas o insumos en las morgues, demostrando la inoperancia absoluta ante desastres.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2018.png" alt="Terremoto de Sucre 2018">
+                                        <div class="visual-content">
+                                            <div class="large-num">2018</div>
+                                            <div class="caption">La precariedad extrema de las infraestructuras de rescate estatales.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2019 -->
+                        <div class="timeline-slide" id="slide-2019">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">7 de Marzo de 2019</span>
+                                    <h3 class="slide-title">El Apagón Nacional <span class="marker text-orange">El País a Oscuras</span></h3>
+                                    <p class="slide-desc">
+                                        Un colapso en la central hidroeléctrica de Guri deja a más del 90% de Venezuela en la oscuridad total durante 5 días seguidos. Las comunicaciones colapsan, los alimentos se pudren y el suministro de agua se detiene por completo.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>Muerte en las Clínicas:</strong> Los generadores de los hospitales fallaron. Decenas de pacientes en terapia intensiva y recién nacidos en incubadoras murieron en la penumbra. El gobierno culpó a un supuesto "ataque cibernético estadounidense", encubriendo años de falta de mantenimiento y desvío de presupuestos de la red eléctrica.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/blackout.png" alt="Apagon Nacional 2019">
+                                        <div class="visual-content">
+                                            <div class="large-num text-orange">2019</div>
+                                            <div class="caption">Noches de cera y muerte en los hospitales en tinieblas.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2020 -->
+                        <div class="timeline-slide" id="slide-2020">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">2020 - 2022</span>
+                                    <h3 class="slide-title">Morir en el Pasillo <span class="marker text-orange">Colapso de Salud</span></h3>
+                                    <p class="slide-desc">
+                                        El COVID-19 entra a Venezuela. Mientras las cúpulas del régimen se aíslan en búnkeres y se atienden en clínicas exclusivas, los hospitales públicos operan como ruinas sin agua, luz ni jabón.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>La Fosa del Abandono:</strong> Médicos y enfermeros fallecen en masa utilizando bolsas de basura como trajes de protección improvisados. Los ciudadanos son forzados a mendigar oxígeno y jeringas en el mercado negro para intentar salvar a sus familiares en pasillos infectados.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2020.png" alt="Pandemia 2020">
+                                        <div class="visual-content">
+                                            <div class="large-num text-orange">2020</div>
+                                            <div class="caption">La vida del venezolano reducida a cero en la burocracia sanitaria.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2025 -->
+                        <div class="timeline-slide" id="slide-2025">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">24 de Junio de 2025</span>
+                                    <h3 class="slide-title">El Páramo Aislado <span class="marker text-orange">Deslaves de Mérida</span></h3>
+                                    <p class="slide-desc">
+                                        Lluvias torrenciales extraordinarias desbordan ríos e inundan 12 municipios de Mérida. Deslaves masivos de tierra y lodo destruyen la vialidad de la carretera Trasandina y provocan el colapso de 25 puentes, dejando a miles de familias andinas incomunicadas en el páramo.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>El Abandono de la Infraestructura:</strong> Ocurrió exactamente un año antes del terremoto de 2026. La falta absoluta de mantenimiento hidráulico de los cauces y la corrupción en el presupuesto de vialidad andina aislaron la despensa agrícola del país. El Estado reaccionó con propaganda, mientras los productores agrícolas veían sus cosechas podrirse y las familias andinas arriesgaban la vida cruzando abismos a pie sobre troncos provisionales.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2025.jpeg" alt="Deslaves de Merida 2025">
+                                        <div class="visual-content">
+                                            <div class="large-num text-orange">2025</div>
+                                            <div class="caption">El colapso de los puentes andinos y el aislamiento del páramo bajo el lodo.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2026 -->
+                        <div class="timeline-slide" id="slide-2026">
+                            <div class="slide-grid">
+                                <div class="slide-info">
+                                    <span class="slide-date">24 de Junio de 2026</span>
+                                    <h3 class="slide-title">La Bota sobre las Ruinas <span class="marker text-red">El Doble Terremoto</span></h3>
+                                    <p class="slide-desc">
+                                        Dos terremotos masivos azotan la región central. Edificios de bajo presupuesto construidos sobre las fosas de Vargas colapsan. Las barriadas tiemblan y la desesperación inunda las calles.
+                                    </p>
+                                    <div class="slide-critique">
+                                        <strong>El Secuestro del Socorro:</strong> El Estado tarda **72 horas** en reaccionar. Y cuando los primeros contingentes aparecen, no traen maquinarias ni palas, sino fusiles para militarizar los accesos y silenciar la ira popular. La ayuda civil independiente es decomisada. Mientras los sobrevivientes cavan con las uñas sangrantes buscando a sus hijos bajo el concreto barato, los militares vigilan las esquinas para garantizar el orden de la fosa.
+                                    </div>
+                                </div>
+                                <div class="slide-visual">
+                                    <div class="visual-card">
+                                        <img src="images/2026.png" class="animate-pulse" alt="Doble Terremoto 2026">
+                                        <div class="visual-content">
+                                            <div class="large-num text-red">2026</div>
+                                            <div class="caption">Controlar el descontento antes que salvar vidas. Las ruinas bajo la bota.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Act 2: Left vs Right (The Balance) -->
+        <section id="acto-2" class="section-block dark-bg">
+            <div class="container">
+                <div class="section-header">
+                    <span class="act-num">ACTO II</span>
+                    <h2>El Péndulo de los Carniceros</h2>
+                    <p class="section-intro">La izquierda y la derecha no son polos en disputa; son las dos hojas de la misma cizalla que corta el futuro de los ciudadanos.</p>
+                </div>
+
+                <div class="interactive-scale-container">
+                    <div class="scale-info">
+                        <p class="scale-instruction">PASA EL CURSOR O TOCA LAS CÚPULAS PARA VER EL PESO DE LA INFAMIA</p>
+                    </div>
+                    
+                    <div class="scale-visual-wrapper">
+                        <!-- Left Side -->
+                        <div class="scale-side left-side" id="side-left">
+                            <div class="side-header">LA DERECHA (EL BIPARTIDISMO)</div>
+                            <div class="side-body">
+                                <ul>
+                                    <li><strong>La Ingeniería como Privilegio:</strong> Es falso que en 1967 no se supiera construir. Destacados ingenieros venezolanos aplicaban metodologías sismorresistentes avanzadas que salvaron edificios enteros en Altamira y Los Palos Grandes sin un rasguño. El conocimiento existía, pero el sistema decidió que la seguridad fuera un privilegio.</li>
+                                    <li><strong>Segregación del Concreto:</strong> Los entes del bipartidismo y constructoras corruptas ignoraron deliberadamente estas normas en urbanizaciones de clase media y zonas populares, usando arena deficiente y estructuras baratas de acero para maximizar el lucro inmobiliario privado a costa del riesgo civil.</li>
+                                    <li><strong>El Caracazo (1989):</strong> Cuando el desespero por hambre bajó de los cerros, defendieron con plomo y fusiles los privilegios de las élites financieras, masacrando a cientos de venezolanos desarmados en las escalinatas de los barrios.</li>
+                                    <li><strong>Consecuencia:</strong> Su desigualdad de concreto y su desprecio por las mayorías sembraron el rencor social que sirvió de alfombra roja para el surgimiento del chavismo.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Balance Center -->
+                        <div class="scale-axis">
+                            <div class="scale-bar"></div>
+                            <div class="scale-fulcrum"></div>
+                        </div>
+
+                        <!-- Right Side -->
+                        <div class="scale-side right-side" id="side-right">
+                            <div class="side-header">LA IZQUIERDA (EL RÉGIMEN)</div>
+                            <div class="side-body">
+                                <ul>
+                                    <li><strong>La Gran Estafa Habitacional:</strong> Con la "Gran Misión Vivienda Venezuela", el chavismo construyó a toda prisa miles de apartamentos con materiales deficientes, paneles prefabricados baratos importados con sobreprecio y sin refuerzos de acero sismorresistente.</li>
+                                    <li><strong>Cunas sobre Tumbas:</strong> Edificaron estos bloques multifamiliares de bajo presupuesto directamente sobre fallas geológicas activas e incluso en los cauces naturales de deslaves de Vargas de 1999, ignorando advertencias de expertos con tal de capitalizar propaganda electoral apresurada.</li>
+                                    <li><strong>Ghettos de Control Social:</strong> Transformaron estas viviendas en centros de extorsión operados por colectivos armados. La familia que resida allí es rehén del régimen: si protesta, si no asiste a marchas del partido o si vota opositor, es desalojada con violencia militar.</li>
+                                    <li><strong>Consecuencia:</strong> Convirtieron la vivienda popular en una trampa de concreto deficiente y control ideológico, sabiendo que colapsarían en el próximo sismo y militarizando las ruinas del 2026 para silenciar la ira.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scale-verdict">
+                        <h3>LA FOSA COMÚN EN EL CENTRO</h3>
+                        <p>Los dos extremos comen del mismo plato: el cuerpo exhausto del ciudadano venezolano. La derecha usó la miseria para el lucro privado; la izquierda la sistematizó para eternizar el control dictatorial. El péndulo oscila, pero el mazo siempre cae sobre nosotros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Act 3: Anesthetics (Social Media & Religion) -->
+        <section id="acto-3" class="section-block">
+            <div class="container">
+                <div class="section-header">
+                    <span class="act-num">ACTO III</span>
+                    <h2>Las Anestesias del Alma</h2>
+                    <p class="section-intro">Para someter a millones, no solo se necesitan fusiles. También se requiere mercantilizar la empatía, desviar la culpa y santificar la resignación.</p>
+                </div>
+
+                <div class="anesthetics-grid">
+                    <!-- Card 1: Social Media -->
+                    <div class="anesthetic-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/>
+                            </svg>
+                        </div>
+                        <h3>La Obscenidad Digital</h3>
+                        <p>
+                            En la era de las pantallas, la catástrofe se convierte en contenido. Influencers y políticos acuden a las barriadas en ruinas con cámaras de alta definición para capturar sus propias caras compungidas y filmar donaciones, canjeando la miseria ajena por "likes" y validación.
+                        </p>
+                        <div class="inner-critique">
+                            <strong>La Transferencia de la Culpa:</strong> Se le enseña al ciudadano de a pie que salvar a su vecino es su responsabilidad moral individual, eximiendo al Estado de su obligación legal de proveer socorro con los recursos del erario público. El venezolano común, sin agua ni luz, se ahoga en la culpa por no poder donar, mientras el poder vigila desde su palco sin gastar un céntimo.
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Religion -->
+                    <div class="anesthetic-card gold-accent">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                                <path d="M12 2L1 21h22L12 2zm0 4l7.5 13h-15L12 6zm-1 5h2v4h-2v-4zm0 6h2v2h-2v-2z"/>
+                            </svg>
+                        </div>
+                        <h3>El Oro Silencioso del Vaticano</h3>
+                        <p>
+                            Desde una ciudadela de oro y arte acumulado, los burócratas de la fe observan el desastre y redactan cartas estériles llenas de oraciones abstractas. Recomiendan paz, concordia y resignación a quienes están atrapados físicamente y torturados económicamente.
+                        </p>
+                        <div class="inner-critique">
+                            <strong>El Escudo de la Fe:</strong> En lugar de condenar de forma activa e implacable la tiranía que aplasta a la población, la religión oficial actúa como amortiguador social. Se le pide al oprimido que perdone al verdugo y espere su recompensa en el cielo, mientras tolera con paciencia los escombros en la tierra.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Act 4: Geopolitics of Petroleum -->
+        <section id="acto-4" class="section-block dark-bg">
+            <div class="container">
+                <div class="section-header">
+                    <span class="act-num">ACTO IV</span>
+                    <h2>La Ecuación del Crudo y la Sangre</h2>
+                    <p class="section-intro">El teatro internacional finge indignación por los derechos humanos, pero en la penumbra tranza barriles de petróleo con los verdugos de turno.</p>
+                </div>
+
+                <div class="geopolitics-layout">
+                    <div class="geopolitics-content">
+                        <p>
+                            Mientras los discursos de potencias extranjeras (como EE.UU. bajo Donald Trump) proclaman la inminente liberación de Venezuela, la realidad se pacta en oficinas secretas. La excelente relación y los acuerdos bajo la mesa con Delcy Rodríguez aseguran el bombeo continuo del petróleo a cambio del sostenimiento del régimen.
+                        </p>
+                        <p class="quote">
+                            "El cambio de gobierno nunca fue una causa moral para los imperios, sino una transacción comercial. Si el próximo tirano garantiza el flujo del crudo sin pedir cuentas, la libertad del pueblo es perfectamente prescindible."
+                        </p>
+                        <div class="geopolitics-alert">
+                            <strong>La Fachada de Bodegón:</strong> Mientras la televisión proclama un falso renacer económico y las cúpulas lavan dinero en centros de lujo dolarizados, el venezolano de a pie se hunde en una pobreza cada vez más profunda. La riqueza del suelo es entregada a cambio de la complicidad y el silencio global.
+                        </div>
+                    </div>
+                    <div class="geopolitics-visual">
+                        <div class="barrel-container">
+                            <div class="barrel">
+                                <div class="barrel-rib"></div>
+                                <div class="barrel-rib"></div>
+                                <div class="barrel-label">PETRÓLEO vs HUMANIDAD</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Act 5: Cutting the Root (Manifesto & Salvadoran Contrast) -->
+        <section id="acto-5" class="section-block">
+            <div class="container">
+                <div class="section-header">
+                    <span class="act-num">ACTO V</span>
+                    <h2>Cortar la Raíz</h2>
+                    <p class="section-intro">El desastre no es natural. El desastre es la sumisión de un pueblo que limpia la sangre para volver a construir sobre las fosas comunes del pasado.</p>
+                </div>
+
+                <div class="contrast-grid">
+                    <!-- Contrast Box El Salvador -->
+                    <div class="contrast-box">
+                        <h3>El Espejo del Pragmatismo</h3>
+                        <p>
+                            Frente a la politiquería retórica tradicional de Venezuela, ejemplos como El Salvador bajo la gestión de Nayib Bukele demuestran que la reconstrucción nacional no surge de discursos ideológicos de izquierda o derecha, sino de la eficiencia implacable, el encarcelamiento de las mafias estatales y la inversión real en la seguridad y dignidad del pueblo.
+                        </p>
+                        <p>
+                            No hay mesías en esta ecuación: hay voluntad de cortar la corrupción de raíz para que la riqueza de la nación regrese a la infraestructura que salva vidas, en lugar de financiar las cuentas bancarias de las élites en el extranjero.
+                        </p>
+                    </div>
+
+                    <!-- Manifesto Box -->
+                    <div class="manifesto-box">
+                        <h3>MANIFIESTO CONTRA EL CÍCLO</h3>
+                        <ol class="manifesto-list">
+                            <li>
+                                <strong>Rechazar salvadores externos:</strong> Ni Washington, ni el Vaticano, ni los líderes tradicionales vendrán a remover las piedras. La ayuda exterior siempre viene con un contrato de propiedad sobre nuestras riquezas.
+                            </li>
+                            <li>
+                                <strong>Desafiar la falsa resiliencia:</strong> Vivir sin luz, sin agua corriente y bajo estructuras de cartón no es ser "fuerte"; es aceptar un maltrato sistemático. La resiliencia silenciosa es complicidad con el opresor.
+                            </li>
+                            <li>
+                                <strong>Desterrar la culpa ciudadana:</strong> Tú no eres culpable del abandono. No permitas que el Estado evada sus responsabilidades fiscales forzándote a costear la emergencia mediante colectas vecinales y chantajes emocionales.
+                            </li>
+                            <li>
+                                <strong>Cortar la raíz:</strong> Para que la tierra no se trague el porvenir de las próximas generaciones, debemos extirpar de raíz la obediencia al subsidio estatal y al aplauso de los verdugos. La reconstrucción de Venezuela empieza cuando decidamos dejar de ser el combustible del sistema.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion: The Autopsy of Attachment and the Awakening of Love -->
+        <section id="conclusion" class="section-block dark-bg">
+            <div class="container">
+                <div class="section-header animate-section">
+                    <span class="act-num">CONCLUSIÓN</span>
+                    <h2>La Autopsia del Apego y el Despertar</h2>
+                    <p class="section-intro">La vida se apaga en un suspiro, pero el eco de nuestras decisiones resuena por generaciones. Es hora de dejar de habitar la fosa común.</p>
+                </div>
+
+                <div class="conclusion-layout">
+                    <div class="conclusion-philosophy">
+                        <p class="dropcap">
+                            La tragedia del 2026 dejó al desnudo las vísceras de una sociedad moralmente fracturada por el sistema. Vimos lo peor de la degradación humana: bufones digitales lucrándose con el dolor ajeno para ganar seguidores; saqueadores vaciando locales comerciales mientras la tierra aún temblaba; ladrones profanando edificios colapsados, robando pertenencias sobre los cuerpos tibios de los muertos; y cuerpos de seguridad del Estado que, lejos de socorrer, se dedicaron a extorsionar, entorpecer los rescates y saquear lo poco que quedaba en pie. Incluso vimos a compatriotas que, sin haber sufrido directamente el impacto del sismo, se abalanzaron sobre la ayuda humanitaria simplemente porque el sistema los ha reducido a una miseria tan extrema que no tienen otra forma de asegurar el pan.
+                        </p>
+                        <p>
+                            Esta descomposición no es casual. Es el resultado de décadas de adoctrinamiento mental, donde el sistema nos enseñó que el ser humano vale por lo que tiene y no por lo que es, obligándonos a encajar en un engranaje donde el dinero y la posición lo justifican todo. Nos metieron en la cabeza que la vida se trata de acumular, de competir y de sobrevivir a costa del prójimo.
+                        </p>
+                        <p>
+                            Existe, sin embargo, un mal aún más silencioso que la negligencia estatal: nuestra propia amnesia colectiva. Los venezolanos hemos desarrollado una preocupante capacidad para olvidar rápido. Cada catástrofe nos paraliza durante varios días; la indignación inunda las conversaciones, las lágrimas caen sobre los escombros y juramos que "esta vez todo cambiará". Pero en cuanto la tierra se calma y el polvo se asienta, volvemos a la inercia diaria como si nada hubiera ocurrido. Sin una reflexión real, sin sembrar una verdadera conciencia, nos limitamos a esperar el próximo golpe del péndulo, resignados a ser las víctimas perpetuas de una historia que no queremos aprender a resolver. El olvido es el anestésico definitivo del opresor.
+                        </p>
+                        <p class="highlight-text">
+                            Pero el crujido de la tierra nos recordó la verdad más absoluta: la vida se puede ir en un segundo, de manera inexplicable, y cuando te vas, no te llevas absolutamente nada.
+                        </p>
+                        <p>
+                            La existencia no se hizo para ser esclavos de un sistema monetario ni para adorar banderas ideológicas. Se hizo para relacionarnos, para compartir el pan, para mirarnos a los ojos y experimentar el único lazo que verdaderamente sobrevive a los escombros: el amor real y la solidaridad genuina. Eso es lo que brilla cuando las luces se apagan: el ciudadano que arriesga su vida por un desconocido, el abrazo en medio de la penumbra, el amor que no pide una cámara enfrente para actuar.
+                        </p>
+                    </div>
+
+                    <div class="conclusion-warning-box">
+                        <h3>El Espejismo de la Reconstrucción</h3>
+                        <p>
+                            Muchos hablarán con orgullo de reconstruir La Guaira y Caracas una vez más. Dirán que es "resiliencia", pero en realidad es el ego y el apego ciego aferrándonos a un abismo geológicamente inviable. ¿Cómo podemos dormir tranquilos sabiendo que estamos levantando cunas sobre tumbas? Pasar décadas sin que ocurra un deslave o un terremoto no borra la amenaza física; solo acumula tiempo para la próxima tragedia. 
+                        </p>
+                        <p>
+                            Aferrarse a un lugar que evidentemente no es seguro para tus hijos y tus nietos no es amor por la tierra: es irresponsabilidad y negación. El verdadero amor por los tuyos exige reconocer el peligro y sacarlos de la línea de fuego, priorizando su vida y su porvenir por encima del orgullo geográfico.
+                        </p>
+                        <p class="warning-call">
+                            No busquemos más culpables con rencor estéril. Reconozcamos nuestros errores morales y estructurales, analizémoslos con frialdad y entendamos que no podemos seguir viviendo bajo las mismas reglas. Si no combatimos el sistema de raíz, si no dejamos de aplaudir a políticos que comercian con nuestras necesidades y no exigimos líderes reales que pongan la vida del ser humano en el centro, estaremos condenados a repetir la historia una y otra vez. El péndulo volverá a golpear, y la próxima vez, serán nuestros hijos los que paguen el precio del apego de sus padres.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="final-hope-block animate-section">
+                    <div class="hope-divider"></div>
+                    <div class="hope-content">
+                        <h3>El Despertar de la Gran Nación</h3>
+                        <p>
+                            Esta autopsia de nuestras tragedias no busca hundirnos en la desesperación ni en un luto eterno. Su único propósito es forzar el despertar de la conciencia que yace dormida bajo el concreto. Venezuela es un país con un espíritu indomable, con una reserva inagotable de nobleza, inteligencia y amor fraterno que se manifiesta en cada rescate y en cada mano extendida. Si logramos romper las cadenas del olvido, si nos atrevemos a reconocer con madurez nuestros errores del pasado y decidimos, de una vez por todas, combatir a este sistema perverso de raíz, podremos construir la gran nación que merecemos ser. Un país libre de mesías políticos y de clientelismos humillantes, donde el valor supremo de la vida humana y la dignidad de cada persona sean el cimiento inquebrantable de nuestro futuro. La reconstrucción real de la patria no empezará en el cemento, sino en el despertar de nuestras almas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>EL PÉNDULO DE LOS ESCOMBROS &copy; 2026. Una reflexión independiente para el despertar ciudadano.</p>
+            <p class="small">Diseñado sin metadatos de rastreo para salvaguardar la libre expresión en tiempos de control estatal.</p>
+        </div>
+    </footer>
+
+    <!-- App JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
