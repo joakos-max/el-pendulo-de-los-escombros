@@ -1123,20 +1123,7 @@ body {
         padding: 50px 0; /* More compact on phones */
     }
 
-    /* Floating Audio Button as a FAB on phones to avoid covering text */
-    .audio-btn {
-        top: 15px;
-        right: 15px;
-        padding: 12px;
-        border-radius: 50%;
-        min-width: 44px;
-        min-height: 44px;
-        justify-content: center;
-    }
 
-    .audio-btn span {
-        display: none; /* Hide label, keep icon */
-    }
 
     .hero-section {
         padding: 100px 0 60px 0;
@@ -1171,4 +1158,5 @@ body {
     0%, 100% { transform: scale(1); opacity: 0.75; }
     50% { transform: scale(1.15); opacity: 1; }
 }
+
 
