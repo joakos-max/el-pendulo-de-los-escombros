@@ -65,24 +65,56 @@
     const rightSide = document.getElementById('side-right');
 
     if (scaleBar && leftSide && rightSide) {
-        leftSide.addEventListener('mouseenter', () => {
+        let activeSide = null;
+
+        const tiltLeft = () => {
             scaleBar.style.transform = 'rotate(-8deg)';
-            scaleBar.style.backgroundColor = 'var(--text-secondary)';
-        });
+            scaleBar.style.backgroundColor = 'var(--accent-yellow)';
+        };
 
-        leftSide.addEventListener('mouseleave', () => {
-            scaleBar.style.transform = 'rotate(0deg)';
-            scaleBar.style.backgroundColor = 'var(--text-secondary)';
-        });
-
-        rightSide.addEventListener('mouseenter', () => {
+        const tiltRight = () => {
             scaleBar.style.transform = 'rotate(8deg)';
             scaleBar.style.backgroundColor = 'var(--accent-red)';
-        });
+        };
 
-        rightSide.addEventListener('mouseleave', () => {
+        const resetScale = () => {
             scaleBar.style.transform = 'rotate(0deg)';
             scaleBar.style.backgroundColor = 'var(--text-secondary)';
+        };
+
+        // Desktop Hover Listeners
+        leftSide.addEventListener('mouseenter', () => {
+            if (!activeSide) tiltLeft();
+        });
+        leftSide.addEventListener('mouseleave', () => {
+            if (!activeSide) resetScale();
+        });
+        rightSide.addEventListener('mouseenter', () => {
+            if (!activeSide) tiltRight();
+        });
+        rightSide.addEventListener('mouseleave', () => {
+            if (!activeSide) resetScale();
+        });
+
+        // Mobile/Tablet Tap Listeners
+        leftSide.addEventListener('click', () => {
+            if (activeSide === 'left') {
+                activeSide = null;
+                resetScale();
+            } else {
+                activeSide = 'left';
+                tiltLeft();
+            }
+        });
+
+        rightSide.addEventListener('click', () => {
+            if (activeSide === 'right') {
+                activeSide = null;
+                resetScale();
+            } else {
+                activeSide = 'right';
+                tiltRight();
+            }
         });
     }
 
@@ -192,7 +224,16 @@
     }
 
     if (audioToggle && iconOff && iconOn) {
-        audioToggle.addEventListener('click', () => {
+        let lastTriggerTime = 0;
+        const togglePlay = (e) => {
+            const now = Date.now();
+            if (now - lastTriggerTime < 400) return; // throttle double inputs
+            lastTriggerTime = now;
+
+            if (e) {
+                e.preventDefault();
+            }
+
             if (!isPlaying) {
                 // Initialize audio on first click (Browser security constraint)
                 if (!audioCtx) {
@@ -204,7 +245,8 @@
                     audioCtx.resume();
                 }
 
-                // Fade in hum slowly
+                // Fade in hum slowly with proper Web Audio automation values
+                gainNode.gain.setValueAtTime(gainNode.gain.value, audioCtx.currentTime);
                 gainNode.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 1.5);
                 
                 // Toggle icons
@@ -213,22 +255,26 @@
                 audioToggle.classList.add('accent-orange');
                 isPlaying = true;
             } else {
-                // Fade out hum slowly, then suspend context
+                // Fade out hum slowly with proper Web Audio automation values
+                gainNode.gain.setValueAtTime(gainNode.gain.value, audioCtx.currentTime);
                 gainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 1.0);
                 setTimeout(() => {
                     if (audioCtx && !isPlaying) {
                         audioCtx.suspend();
-                    }
-                }, 1000);
+                      }
+                  }, 1000);
+  
+                  // Toggle icons
+                  iconOff.classList.remove('hidden');
+                  iconOn.classList.add('hidden');
+                  audioToggle.classList.remove('accent-orange');
+                  isPlaying = false;
+              }
+          };
 
-                // Toggle icons
-                iconOff.classList.remove('hidden');
-                iconOn.classList.add('hidden');
-                audioToggle.classList.remove('accent-orange');
-                isPlaying = false;
-            }
-        });
-    }
+          audioToggle.addEventListener('click', togglePlay);
+          audioToggle.addEventListener('touchend', togglePlay);
+      }
 
     // 5. Interactive Broken Flag Rumble
     const brokenFlag = document.querySelector('.broken-flag-container');
@@ -269,6 +315,7 @@
         });
     }
 });
+
 
 
 
