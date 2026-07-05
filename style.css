@@ -622,7 +622,7 @@ body {
 /* Act 3: Anesthetics Grid */
 .anesthetics-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     margin-top: 40px;
 }
@@ -1158,5 +1158,6 @@ body {
     0%, 100% { transform: scale(1); opacity: 0.75; }
     50% { transform: scale(1.15); opacity: 1; }
 }
+
 
 
